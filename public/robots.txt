@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://genesys-dev.vercel.app/
+
+# Sitemaps
+Sitemap: https://genesys-dev.vercel.app/sitemap.xml
+Sitemap: https://genesys-dev.vercel.app/server-sitemap.xml
