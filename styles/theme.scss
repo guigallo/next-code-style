@@ -1,0 +1,10 @@
+@import './responsiveness';
+
+$default-font-sizes: (
+  null: 16px,
+  breakpoint-value(sm): 20px,
+  breakpoint-value(md): 24px,
+  breakpoint-value(lg): 26px,
+  breakpoint-value(xl): 26px,
+  breakpoint-value(xxl): 26px,
+);

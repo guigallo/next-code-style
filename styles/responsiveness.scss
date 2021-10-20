@@ -1,0 +1,75 @@
+/**
+ * Responsivity helper's based on these two articles:
+ * https://adrianmanduc.medium.com/how-to-create-a-scss-mixin-for-responsive-design-8aad4f70f1d5
+ * https://www.smashingmagazine.com/2015/06/responsive-typography-with-sass-maps/
+ **/
+
+$breakpoints: (
+  sm: (
+    min: 576px,
+    max: 575.98px,
+  ),
+  md: (
+    min: 768px,
+    max: 767.98px,
+  ),
+  lg: (
+    min: 992px,
+    max: 991.98px,
+  ),
+  xl: (
+    min: 1200px,
+    max: 1199.98px,
+  ),
+  xxl: (
+    min: 1400px,
+    max: 1399.98px,
+  ),
+);
+
+@mixin breakpoint($breakpoint, $direction: min) {
+  //check if the supplied breakpoint exists in our breakpoits map
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-values: map-get($breakpoints, $breakpoint);
+    $breakpoint-min: map-get($breakpoint-values, min);
+    $breakpoint-max: map-get($breakpoint-values, max);
+
+    //check if we are writing styles for larger or smaller screens
+    @if $direction == min {
+      @media (min-width: $breakpoint-min) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $breakpoint-max) {
+        @content;
+      }
+    }
+  } @else {
+    // use the custom value if the breakpoint is not part of the pre-defined list
+    @if $direction == min {
+      @media (min-width: $breakpoint) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $breakpoint) {
+        @content;
+      }
+    }
+  }
+}
+
+@function breakpoint-value($name, $direction: min) {
+  @return map-get(map-get($breakpoints, $name), $direction);
+}
+
+@mixin font-sizes($fs-map) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      font-size: $fs-font-size;
+    } @else {
+      @media screen and (min-width: $fs-breakpoint) {
+        font-size: $fs-font-size;
+      }
+    }
+  }
+}

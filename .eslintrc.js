@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2021: true,
@@ -6,10 +7,8 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'next',
     'next/core-web-vitals',
     'plugin:json/recommended',
-    'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
   ],
@@ -31,12 +30,6 @@ module.exports = {
     },
     ecmaVersion: 12,
     sourceType: 'module',
-  },
-  plugins: ['react'],
-  settings: {
-    react: {
-      version: 'detect',
-    },
   },
   rules: {
     'react/prop-types': 'off',

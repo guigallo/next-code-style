@@ -6,7 +6,7 @@
     "build": "next build",
     "dev": "next dev",
     "format": "prettier --write --ignore-unknown .",
-    "lint": "eslint --fix",
+    "lint": "npx next lint --fix",
     "lint-staged": "lint-staged",
     "postbuild": "next-sitemap",
     "prepare": "husky install",
@@ -14,7 +14,11 @@
     "style-lint": "stylelint \"**/*.scss\""
   },
   "dependencies": {
+    "classnames": "2.3.1",
+    "interweave": "12.9.0",
+    "marked": "3.0.7",
     "next": "11.1.2",
+    "next-i18next": "8.9.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
@@ -32,6 +36,7 @@
     "eslint-plugin-react": "7.25.1",
     "eslint-plugin-react-hooks": "4.2.0",
     "husky": "7.0.2",
+    "interweave-ssr": "1.2.1",
     "lint-staged": "11.1.2",
     "next-sitemap": "1.6.168",
     "next-transpile-modules": "8.0.0",
